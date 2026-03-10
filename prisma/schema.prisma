@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Story {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  subtitle    String?
+  body        String
+  category    Category
+  publishedAt DateTime
+  featured    Boolean   @default(false)
+  images      Image[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Image {
+  id          String   @id @default(cuid())
+  storyId     String
+  story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  url         String
+  caption     String?
+  altText     String?
+  width       Int?
+  height      Int?
+  sensor      String?
+  capturedAt  DateTime?
+  isPrimary   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+enum Category {
+  WILDFIRE
+  AGRICULTURE
+  WEATHER
+  ENERGY
+  HYDROLOGY
+  INFRASTRUCTURE
+  COMMUNITY
+  MISSILE_FIELDS
+  OTHER
+}
