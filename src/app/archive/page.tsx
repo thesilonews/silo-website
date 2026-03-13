@@ -30,13 +30,13 @@ export default async function ArchivePage({ searchParams }: Props) {
         take: 1,
       },
     },
-  });
+  }).catch(() => []);
 
   // Category counts for filters
   const counts = await prisma.story.groupBy({
     by: ["category"],
     _count: { id: true },
-  });
+  }).catch(() => []);
   const countMap = Object.fromEntries(counts.map((c) => [c.category, c._count.id]));
 
   return (
