@@ -96,7 +96,7 @@ export default async function HomePage() {
           Look closer, every week.
         </h3>
         <p className="text-sm mb-5" style={{ color: "#8B8B8B" }}>
-          One image. One story. The Nebraska Panhandle from above — delivered to your inbox.
+          One image. One story. Colorado, Wyoming, and Nebraska — delivered to your inbox.
         </p>
         <Link
           href="/newsletter"

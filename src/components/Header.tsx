@@ -21,7 +21,7 @@ export default function Header() {
           className="text-[10px] tracking-[0.2em] uppercase"
           style={{ fontFamily: "var(--font-jetbrains-mono)", color: "#8B8B8B" }}
         >
-          Colorado · Wyoming · Nebraska · From Above
+          Colorado · Wyoming · Nebraska
         </span>
       </Link>
 

@@ -43,7 +43,7 @@ export default function NewsletterPage() {
           Newsletter
         </h1>
         <p className="text-base leading-relaxed" style={{ color: "#C5B49A" }}>
-          One image. One story. The Nebraska Panhandle, SE Wyoming, and NE Colorado — from above.
+          One image. One story. Colorado, Wyoming, and Nebraska — from above.
           Free, weekly, no spam.
         </p>
       </div>
