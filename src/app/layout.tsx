@@ -43,8 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

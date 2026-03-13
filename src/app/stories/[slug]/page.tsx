@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
+import { formatStoryDate } from "@/lib/formatDate";
 import CategoryBadge from "@/components/CategoryBadge";
 import type { Metadata } from "next";
 
@@ -20,8 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const stories = await prisma.story.findMany({ select: { slug: true } });
-  return stories.map((s) => ({ slug: s.slug }));
+  try {
+    const stories = await prisma.story.findMany({ select: { slug: true } });
+    return stories.map((s) => ({ slug: s.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function StoryPage({ params }: Props) {
@@ -34,12 +39,7 @@ export default async function StoryPage({ params }: Props) {
   if (!story) notFound();
 
   const primaryImage = story.images.find((i) => i.isPrimary) ?? story.images[0];
-  const dateStr = story.publishedAt.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Denver",
-  });
+  const dateStr = formatStoryDate(story.publishedAt);
 
   // Split body into paragraphs
   const paragraphs = story.body.split("\n\n").filter(Boolean);

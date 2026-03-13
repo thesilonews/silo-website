@@ -15,8 +15,7 @@ export default function Footer() {
             The Silo
           </span>
           <p className="text-sm max-w-xs" style={{ color: "#8B8B8B" }}>
-            Satellite imagery, data maps, and sensor journalism for the Nebraska
-            Panhandle, SE Wyoming, and NE Colorado.
+            Satellite imagery, data maps, and sensor journalism for Colorado, Wyoming, and Nebraska.
           </p>
           <p className="text-xs mt-2" style={{ fontFamily: "var(--font-jetbrains-mono)", color: "#3D3D3B" }}>
             CC BY 4.0 — free to republish with attribution
@@ -66,7 +65,7 @@ export default function Footer() {
         className="max-w-5xl mx-auto mt-10 pt-6 border-t text-center text-xs"
         style={{ borderColor: "#2A3545", color: "#3D3D3B", fontFamily: "var(--font-jetbrains-mono)" }}
       >
-        Look closer. · Kimball, NE · {new Date().getFullYear()}
+        Look closer. · Colorado · Wyoming · Nebraska · {new Date().getFullYear()}
       </div>
     </footer>
   );

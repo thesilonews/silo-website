@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Category } from "@prisma/client";
+import { formatStoryDate } from "@/lib/formatDate";
 import CategoryBadge from "./CategoryBadge";
 
 interface StoryCardProps {
   slug: string;
   title: string;
   subtitle?: string | null;
-  category: Category;
+  category: string;
   publishedAt: Date;
   imageUrl?: string | null;
   imageAlt?: string | null;
@@ -24,12 +24,7 @@ export default function StoryCard({
   imageAlt,
   size = "normal",
 }: StoryCardProps) {
-  const dateStr = publishedAt.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Denver",
-  });
+  const dateStr = formatStoryDate(publishedAt);
 
   if (size === "large") {
     return (

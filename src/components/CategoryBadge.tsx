@@ -1,6 +1,4 @@
-import { Category } from "@prisma/client";
-
-const categoryConfig: Record<Category, { label: string; color: string }> = {
+const categoryConfig: Record<string, { label: string; color: string }> = {
   WILDFIRE: { label: "Wildfire", color: "#A84C2A" },
   AGRICULTURE: { label: "Agriculture", color: "#5C7A5E" },
   WEATHER: { label: "Weather", color: "#3A7EBF" },
@@ -12,8 +10,9 @@ const categoryConfig: Record<Category, { label: string; color: string }> = {
   OTHER: { label: "Other", color: "#3D3D3B" },
 };
 
-export default function CategoryBadge({ category }: { category: Category }) {
-  const { label, color } = categoryConfig[category];
+export default function CategoryBadge({ category }: { category: string }) {
+  const config = categoryConfig[category] ?? { label: category, color: "#8B8B8B" };
+  const { label, color } = config;
   return (
     <span
       className="inline-block px-2 py-0.5 text-[10px] tracking-widest uppercase rounded-sm"

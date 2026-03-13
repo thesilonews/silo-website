@@ -14,7 +14,7 @@ export default async function HomePage() {
         take: 1,
       },
     },
-  });
+  }).catch(() => []);
 
   const featured = stories.find((s) => s.featured) ?? stories[0];
   const rest = stories.filter((s) => s.id !== featured?.id).slice(0, 6);
@@ -28,7 +28,7 @@ export default async function HomePage() {
           className="text-xs tracking-widest uppercase text-center"
           style={{ fontFamily: "var(--font-jetbrains-mono)", color: "#3D3D3B" }}
         >
-          41.2°N 103.7°W · Nebraska Panhandle
+          41.2°N 103.7°W · Colorado · Wyoming · Nebraska
         </p>
       </div>
 

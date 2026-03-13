@@ -1,23 +1,11 @@
 import { prisma } from "@/lib/db";
-import { Category } from "@prisma/client";
+import { Category, categoryLabels } from "@/lib/categories";
 import StoryCard from "@/components/StoryCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Archive",
   description: "All stories from The Silo — satellite imagery and data journalism for the Nebraska Panhandle.",
-};
-
-const categoryLabels: Record<Category, string> = {
-  WILDFIRE: "Wildfire",
-  AGRICULTURE: "Agriculture",
-  WEATHER: "Weather",
-  ENERGY: "Energy",
-  HYDROLOGY: "Hydrology",
-  INFRASTRUCTURE: "Infrastructure",
-  COMMUNITY: "Community",
-  MISSILE_FIELDS: "Missile Fields",
-  OTHER: "Other",
 };
 
 interface Props {
@@ -27,9 +15,9 @@ interface Props {
 export default async function ArchivePage({ searchParams }: Props) {
   const { category } = await searchParams;
 
-  const activeCategory = category?.toUpperCase() as Category | undefined;
+  const activeCategory = category?.toUpperCase();
   const validCategory =
-    activeCategory && Object.values(Category).includes(activeCategory)
+    activeCategory && (Object.values(Category) as string[]).includes(activeCategory)
       ? activeCategory
       : undefined;
 
@@ -82,7 +70,7 @@ export default async function ArchivePage({ searchParams }: Props) {
           All ({Object.values(countMap).reduce((a, b) => a + b, 0)})
         </a>
         {Object.entries(categoryLabels).map(([cat, label]) => {
-          const count = countMap[cat as Category] ?? 0;
+          const count = countMap[cat] ?? 0;
           if (count === 0) return null;
           const isActive = validCategory === cat;
           return (
