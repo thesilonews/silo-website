@@ -86,7 +86,7 @@ export default function StoryCard({
       style={{ borderColor: "#2A3545" }}
     >
       {imageUrl && (
-        <div className="relative w-24 h-16 flex-shrink-0 overflow-hidden rounded-sm bg-[#0f1923]">
+        <div className="relative w-32 h-24 flex-shrink-0 overflow-hidden rounded-sm bg-[#0f1923]">
           <Image
             src={imageUrl}
             alt={imageAlt ?? title}
@@ -99,7 +99,7 @@ export default function StoryCard({
         <div className="flex items-center gap-2">
           <CategoryBadge category={category} />
           <span
-            className="text-[10px]"
+            className="text-xs"
             style={{ fontFamily: "var(--font-jetbrains-mono)", color: "#8B8B8B" }}
           >
             {dateStr}

@@ -37,8 +37,8 @@ export default async function HomePage() {
         href="https://morrillfire.thesilonews.com"
         target="_blank"
         rel="noopener"
-        className="block mt-8 mb-10 p-5 rounded-sm border no-underline group"
-        style={{ borderColor: "#A84C2A55", backgroundColor: "#A84C2A0D" }}
+        className="block mt-8 mb-10 p-5 rounded-sm border no-underline group sticky top-0 z-10 backdrop-blur-sm"
+        style={{ borderColor: "#A84C2A55", backgroundColor: "#A84C2A18" }}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -137,7 +137,7 @@ export default async function HomePage() {
         </p>
         <Link
           href="/newsletter"
-          className="inline-block px-6 py-2.5 text-sm font-medium tracking-wide rounded-sm transition-colors"
+          className="inline-block px-6 py-3 min-h-[44px] text-sm font-medium tracking-wide rounded-sm transition-colors"
           style={{ backgroundColor: "#D4A853", color: "#141E2A" }}
         >
           Subscribe free
