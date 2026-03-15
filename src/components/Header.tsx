@@ -7,6 +7,10 @@ const nav = [
   { href: "/newsletter", label: "Newsletter" },
 ];
 
+const externalNav = [
+  { href: "https://morrillfire.thesilonews.com", label: "Maps" },
+];
+
 export default function Header() {
   return (
     <header className="w-full px-6 py-5 flex items-center justify-between">
@@ -35,6 +39,18 @@ export default function Header() {
           >
             {label}
           </Link>
+        ))}
+        {externalNav.map(({ href, label }) => (
+          <a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener"
+            className="text-sm tracking-wide transition-colors hover:text-[#D4A853]"
+            style={{ fontFamily: "var(--font-inter)", color: "#C5B49A" }}
+          >
+            {label}
+          </a>
         ))}
       </nav>
     </header>

@@ -32,6 +32,43 @@ export default async function HomePage() {
         </p>
       </div>
 
+      {/* Live coverage banner */}
+      <a
+        href="https://morrillfire.thesilonews.com"
+        target="_blank"
+        rel="noopener"
+        className="block mt-8 mb-10 p-5 rounded-sm border no-underline group"
+        style={{ borderColor: "#A84C2A55", backgroundColor: "#A84C2A0D" }}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1.5">
+              <span
+                className="text-[10px] tracking-widest uppercase font-semibold"
+                style={{ fontFamily: "var(--font-jetbrains-mono)", color: "#A84C2A" }}
+              >
+                ● Live coverage
+              </span>
+            </div>
+            <p
+              className="text-base font-bold mb-1 leading-snug"
+              style={{ fontFamily: "var(--font-source-serif)", color: "#E8E4DC" }}
+            >
+              Morrill County Fire — Nebraska&apos;s largest wildfire in history
+            </p>
+            <p className="text-sm" style={{ color: "#8B8B8B" }}>
+              549,000+ acres · not contained · interactive satellite map, fire detections, and property search
+            </p>
+          </div>
+          <span
+            className="text-lg mt-0.5 flex-shrink-0 transition-transform group-hover:translate-x-1"
+            style={{ color: "#A84C2A" }}
+          >
+            →
+          </span>
+        </div>
+      </a>
+
       {/* Hero story */}
       {featured && (
         <div className="mt-10 mb-14">
