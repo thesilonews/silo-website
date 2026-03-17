@@ -4,6 +4,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { formatStoryDate } from "@/lib/formatDate";
 import CategoryBadge from "@/components/CategoryBadge";
+import StoryBody from "@/components/StoryBody";
 import type { Metadata } from "next";
 
 interface Props {
@@ -40,9 +41,6 @@ export default async function StoryPage({ params }: Props) {
 
   const primaryImage = story.images.find((i) => i.isPrimary) ?? story.images[0];
   const dateStr = formatStoryDate(story.publishedAt);
-
-  // Split body into paragraphs
-  const paragraphs = story.body.split("\n\n").filter(Boolean);
 
   return (
     <article className="max-w-3xl mx-auto px-6 pb-24">
@@ -113,15 +111,7 @@ export default async function StoryPage({ params }: Props) {
 
       {/* Body */}
       <div className="prose-silo">
-        {paragraphs.map((para, i) => (
-          <p
-            key={i}
-            className="text-base leading-relaxed mb-5"
-            style={{ color: "#C5B49A" }}
-          >
-            {para}
-          </p>
-        ))}
+        <StoryBody body={story.body} />
       </div>
 
       {/* Additional images */}
