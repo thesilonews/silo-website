@@ -57,7 +57,7 @@ export default async function HomePage() {
               Morrill County Fire — Nebraska&apos;s largest wildfire in history
             </p>
             <p className="text-sm" style={{ color: "#8B8B8B" }}>
-              643,000+ acres · 18% contained · interactive satellite map, fire detections, and property search
+              642,036 acres · 98% contained · interactive satellite map, fire detections, and property search
             </p>
           </div>
           <span
