@@ -84,12 +84,13 @@ export default async function StoryPage({ params }: Props) {
       {/* Primary image */}
       {primaryImage?.url && (
         <figure className="mb-8 -mx-6 md:mx-0">
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0f1923]">
+          <div className="relative w-full overflow-hidden bg-[#0f1923]" style={{ aspectRatio: "auto" }}>
             <Image
               src={primaryImage.url}
               alt={primaryImage.altText ?? story.title}
-              fill
-              className="object-cover"
+              width={1400}
+              height={900}
+              className="w-full h-auto"
               priority
             />
           </div>
