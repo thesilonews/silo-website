@@ -4,8 +4,8 @@
  */
 import { neon } from "@neondatabase/serverless";
 
-const DIRECT_URL =
-  "postgresql://neondb_owner:npg_LtkvFhG1WmH3@ep-hidden-fog-am9ihols.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require";
+const DIRECT_URL = process.env.DATABASE_URL;
+if (!DIRECT_URL) throw new Error("DATABASE_URL env var is required");
 
 const sql = neon(DIRECT_URL);
 
